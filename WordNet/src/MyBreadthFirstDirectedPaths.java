@@ -26,7 +26,11 @@
  *
  ******************************************************************************/
 
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.Digraph;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Queue;
+import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 /**
  *  The {@code BreadthDirectedFirstPaths} class represents a data type for finding
