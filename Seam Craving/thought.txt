@@ -1,0 +1,26 @@
+The key part in this assignment is to apply topological sort to find the shortest path.
+
+However, an actual implementation of topological sort is not needed. Given the graph's property, it's always pointing
+from top verticies to bottom verticies. Thus, simply traversing the graph would yield a topological sort order.
+The important thing here is to determine whether to use column-major or row-major traversal.
+
+By simply drawing a 4x3 graph and generate a topological order using column-major and row-major, you will find out that
+the column-major (lock column tranverse rows) is not a topo order.
+
+Then, using that order, relax every verticies visited. The disto array is the sum of energy from sources to the index.
+
+One optimizaiton pointf is the remove/findHorizontalSeam. We will have to transpose the image. We can use a boolean
+instance variable for saving the previous state. That way, if we already transposed the image, we don't have to do it
+again (Do transpose as needed)
+
+Pay attention: The edgeTo array is a pointer pointing to the parent. Thus, the final seam path should be the reverse
+order of the path (use stack). Why is that important? because the seam [1, 2, 3] is different from [3, 2, 1].
+[1, 2, 3] -> B -> G -> L
+A B* C D
+E F G* H
+I J K L*
+
+[3, 2, 1] -> D -> G ->J
+A B C D*
+E F G* H
+I J* K L

@@ -1,0 +1,16 @@
+A synset is an aggregation of nouns.
+A synset is a vertex in a wordnet graph. Thus, a vertex is actually a combination of nouns. 
+A noun can map to multiple synsets. 
+
+Thus, we should use a symbol table for mapping between nouns to synset ids and a symbol table for mapping between synset id and nouns (the second field).
+
+The toughest part in this assignment is probably the lowest common ancestor implementation. The basic idea is to apply BFS on one of the verte - A and do BFS on the other vertex - B step by step. We are only interested in the vertex that was previsouly visited by A. For every such vertex, we can calculate the distance to A and B and always keep track of the vertex that has the shortest distance. (We can utilize the BFS class provided by class)
+
+For the length method in SAP, it would simply become the sum of the distance of A and B to their ancestor. 
+
+For the ancestor interface that takes in iterables. Doing BFS on a list of vertex is simply just treat them as a giant vertex. The shortest distance (the dist array in BFS) just means the shortest distance from other vertex to one of the vertex in the iterable. 
+
+For the length interface that takes in iterables. That basically means the length of the left iterables plus the length of the right iterables to their common ancestor (Left and right are giant vertex). Thus, we can find the common ancestor fo these two iterables and query the distance between that ancestor to each iterables. 
+
+How to determine if a digraph is DAG?
+We can do DFS on each unmarked vertex and save the stack entry in a set. We also have to make sure there is no dangling note (a note has zero in and out degrees). We have to make sure there is only one vertex that has zero out degree (root).
