@@ -1,0 +1,8 @@
+This assignment is basically about applying FordFulkerson algorithm. 
+Thus, the most important thing here is to construct FlowNetwork graph. As long as the graph is correct, then the FordFulkerson object would tell you the result. 
+In the marked array, if an entry is true, it means that entry is in mincut, meaning that this entry is not full. 
+A team is not eliminated if and only if all entries are full (all entries are false).
+If there is an entry that's true, means this team is eliminated. 
+
+How to determine a team is eliminated by who?
+For each true entry, use the index of the marked array to map between the GameBetweenVertex. For example, entry 1 is true and vertex 1 is game between 1 - 2. Thus, the team is eliminated by team 1 and team 2.
